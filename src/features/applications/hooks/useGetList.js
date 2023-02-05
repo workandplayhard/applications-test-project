@@ -1,7 +1,6 @@
 import { DEFAULT_PAGE_SIZE } from "@/constants/config.js";
 import APPLICATIONS_LIST from "@/mocks/get-applications-list.json";
 
-
 const filterByCategories = (data, categories) =>
   data.reduce((acc, curr) => {
     curr.categories.forEach((category) => {
@@ -49,7 +48,10 @@ const getData = (data = [], filters) => {
 
 const useApplicationsList = (filters = {}) => {
   return {
-    data: getData(APPLICATIONS_LIST, filters),
+    data: getData(
+      APPLICATIONS_LIST.sort(() => 0.5 - Math.random()),
+      filters
+    ),
   };
 };
 
