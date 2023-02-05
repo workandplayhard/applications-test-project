@@ -52,6 +52,7 @@ const useApplicationsList = (filters = {}) => {
       APPLICATIONS_LIST.sort(() => 0.5 - Math.random()),
       filters
     ),
+    isFetched: true,
   };
 };
 

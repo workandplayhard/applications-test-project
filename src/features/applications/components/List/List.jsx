@@ -9,7 +9,6 @@ import { useFilter, usePagination, useSearch } from "@/hooks";
 import { useApplicationsList } from "../../hooks";
 import ListFilterButton from "./ListFilterButton";
 
-
 const ApplicationsList = () => {
   const { appliedFilters, removeAppliedFilter } = useFilter();
   const { search, setSearch } = useSearch();
@@ -19,6 +18,8 @@ const ApplicationsList = () => {
     page,
     categories: appliedFilters.map((filter) => filter.id),
   });
+
+  console.error(data, isFetched);
 
   return (
     <Grid container rowSpacing={3}>
