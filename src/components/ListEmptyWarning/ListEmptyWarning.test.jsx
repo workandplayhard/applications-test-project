@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ListEmptyWarning from "./ListEmptyWarning";
 
-
 const ui = <ListEmptyWarning />;
 
 describe("ListEmptyWarning", () => {

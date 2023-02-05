@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
 import ListPagination from "./ListPagination";
 
-
 const onPageChange = vi.fn();
 const ui = <ListPagination page={1} count={15} onPageChange={onPageChange} />;
 

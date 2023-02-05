@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
 import ListFilter from "./ListFilter";
 
-
 const onChange = vi.fn();
 
 const ui = (

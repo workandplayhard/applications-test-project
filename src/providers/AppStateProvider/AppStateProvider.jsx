@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import { AppsStateContextProvider } from "@/context/appContext";
 
-
 const AppStateProvider = ({ children }) => {
   const [{ search, appliedFilters, page }, setState] = useState({
     search: "",

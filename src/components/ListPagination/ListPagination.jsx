@@ -9,7 +9,6 @@ import {
 import PAGINATION_THEME from "./theme";
 import usePagination from "./usePagintion";
 
-
 const ListPagination = ({ page, count, onPageChange, pageSize }) => {
   const { pagesCount, handlePageChange, handleSelectPageChanged, pageNumbers } =
     usePagination({ count, onPageChange, pageSize });

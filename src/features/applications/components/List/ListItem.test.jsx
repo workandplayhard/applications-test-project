@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import AllProviders from "@/providers/AllProviders/index";
 import ApplicationsListItem from "./ListItem";
 
-
 const testApplication = {
   id: 1,
   title: "Darwinbox",

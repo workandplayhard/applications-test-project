@@ -1,7 +1,6 @@
 import AppStateProvider from "@/providers/AppStateProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 
-
 const AllProviders = ({ children }) => {
   return (
     <ThemeProvider>

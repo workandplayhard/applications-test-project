@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import AppliedFilters from "./AppliedFilters";
 
-
 const onRemove = vi.fn();
 
 const TEST_FILTERS = [

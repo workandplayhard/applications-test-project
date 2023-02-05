@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
 import ListFilterDialog from "./ListFilterDialog";
 
-
 const onClose = vi.fn();
 const onClear = vi.fn();
 const onApply = vi.fn();

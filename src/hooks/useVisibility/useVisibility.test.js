@@ -1,7 +1,6 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import useVisibility from "./useVisibility";
 
-
 describe("useVisibility hook", function () {
   test("should set visibility to 'true' with 'show' callback", () => {
     const { result } = renderHook(() => useVisibility());

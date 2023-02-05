@@ -4,7 +4,6 @@ import { vi } from "vitest";
 import AllProviders from "@/providers/AllProviders";
 import NotifyMeDialog from "./NotifyMeDialog";
 
-
 const onClose = vi.fn();
 
 const ui = (

@@ -10,7 +10,6 @@ import userEvent from "@testing-library/user-event";
 import AllProviders from "@/providers/AllProviders";
 import ApplicationsList from "./List";
 
-
 const ui = (
   <AllProviders>
     <ApplicationsList />
@@ -51,22 +50,14 @@ describe("ApplicationsList", () => {
     await userEvent.click(
       within(screen.getByTestId("list-filter-dialog")).getByText("Apply")
     );
-    const appliedFilters =  screen.queryAllByTestId("applied-filter")
-    expect(appliedFilters[0]).toHaveTextContent(
-      "Accounting"
-    );
-    expect(appliedFilters[1]).toHaveTextContent(
-      "Bookkeeping"
-    );
+    const appliedFilters = screen.queryAllByTestId("applied-filter");
+    expect(appliedFilters[0]).toHaveTextContent("Accounting");
+    expect(appliedFilters[1]).toHaveTextContent("Bookkeeping");
     const headers = screen.queryAllByTestId("app-header");
     headers.forEach((header) => {
       expect(header).toHaveTextContent(/Accounting|Bookkeeping/);
     });
-    await userEvent.click(
-      within(appliedFilters[1]).getByTestId(
-        "CancelIcon"
-      )
-    );
+    await userEvent.click(within(appliedFilters[1]).getByTestId("CancelIcon"));
     expect(screen.queryAllByTestId("applied-filter")[0]).toHaveTextContent(
       "Accounting"
     );

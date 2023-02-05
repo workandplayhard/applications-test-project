@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material/styles";
 
-
 export const THEME_COMMON_ROOT = {
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
