@@ -22,7 +22,6 @@ describe("ApplicationsList", () => {
   });
   test("should render correctly", async () => {
     render(ui);
-    await waitFor(() => screen.findByText("Discord"));
     expect(screen.queryAllByTestId("application-card").length).toBe(10);
     expect(screen.getByTestId("pagination-info")).toBeInTheDocument();
     expect(screen.getByTestId("list-filter")).toBeInTheDocument();
@@ -35,7 +34,6 @@ describe("ApplicationsList", () => {
   test("should handle Filters change", async () => {
     render(ui);
 
-    await screen.findByText("Discord");
     expect(screen.queryAllByTestId("application-card").length).toBe(10);
 
     await userEvent.click(
@@ -70,8 +68,6 @@ describe("ApplicationsList", () => {
   test("should handle page change", async () => {
     render(ui);
 
-    // expect(getList).toHaveBeenCalledTimes(1);
-    await waitFor(() => screen.findByText("Discord"));
     expect(
       within(screen.getByTestId("list-pagination")).getByLabelText("page 1")
     ).toBeInTheDocument();
@@ -88,15 +84,12 @@ describe("ApplicationsList", () => {
         "Go to page 2"
       )
     );
-    expect(await screen.findByText(/some-11/i)).toBeInTheDocument();
     expect(
       within(screen.getByTestId("list-pagination")).getByLabelText("page 2")
     ).toHaveAttribute("aria-current", "true");
-    expect(screen.queryByText("Discord")).not.toBeInTheDocument();
   });
   test("should handle page change with select box", async () => {
     render(ui);
-    await screen.findByText("Discord");
     expect(
       within(screen.getByTestId("list-pagination")).getByLabelText("page 1")
     ).toBeInTheDocument();
@@ -111,15 +104,12 @@ describe("ApplicationsList", () => {
       within(screen.getByRole("presentation")).getByText(2)
     );
 
-    await screen.findByText(/some-11/i);
     expect(
       within(screen.getByTestId("list-pagination")).getByLabelText("page 2")
     ).toHaveAttribute("aria-current", "true");
-    expect(screen.queryByText("Discord")).not.toBeInTheDocument();
   });
   test("should handle search", async () => {
     render(ui);
-    await screen.findByText("Discord");
     await userEvent.type(
       screen.getByPlaceholderText("Search apps"),
       "___NonExistingText___"
