@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import {
+  Box,
   Button,
   Dialog,
   DialogActions,
@@ -12,6 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 import validateEmail from "@/lib/validateEmail.js";
+
+import NotifyIcon from "@/assets/icon-notify.svg";
 
 /**
  * NotifyMeDialog component
@@ -84,6 +87,9 @@ const NotifyMeDialog = ({ open, hide }) => {
           onClick={handleSubmitClick}
           disabled={email.isError}
         >
+          <Typography sx={{ paddingRight: "4px" }}>
+            <img src={NotifyIcon} alt="Notify Icon" />
+          </Typography>
           Notify me
         </Button>
       </DialogActions>

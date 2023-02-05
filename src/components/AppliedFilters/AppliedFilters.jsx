@@ -1,7 +1,6 @@
 import { Chip, Stack, ThemeProvider } from "@mui/material";
 import APPLIED_FILTERS_THEME from "@/components/AppliedFilters/theme";
 
-
 const AppliedFilters = ({
   appliedFilters = [],
   removeAppliedFilter,
@@ -15,6 +14,9 @@ const AppliedFilters = ({
             data-testid="applied-filter"
             key={filter.id}
             size="small"
+            sx={{
+              borderRadius: "4px",
+            }}
             label={filter.label}
             onDelete={() => removeAppliedFilter(filter.id)}
           />

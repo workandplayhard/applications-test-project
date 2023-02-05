@@ -7,7 +7,6 @@ import {
 } from "@/features/applications/constants/filterCategories";
 import { useFilter } from "@/hooks";
 
-
 const ApplicationsListFilterDialog = ({ anchorEl, open, hide }) => {
   const { applyFilters } = useFilter();
   const [selectedCategories, setSelectedCategories] =

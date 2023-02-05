@@ -1,7 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { THEME_COMMON_ROOT } from "@/constants/defaultTheme";
 
-
 const PAGINATION_THEME = createTheme({
   ...THEME_COMMON_ROOT,
   components: {

@@ -4,7 +4,6 @@ import { afterEach, vi } from "vitest";
 import AppStateProvider from "@/providers/AppStateProvider";
 import ApplicationsListFilterDialog from "./ListFilterDialog";
 
-
 const onClose = vi.fn();
 
 const ui = (

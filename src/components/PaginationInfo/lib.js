@@ -1,6 +1,5 @@
 import { DEFAULT_PAGE_SIZE } from "@/constants/config.js";
 
-
 export const getRowsDisplayedRange = ({
   page,
   count,

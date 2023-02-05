@@ -1,7 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment, Stack, TextField } from "@mui/material";
 
-
 const ListFilter = ({
   ListFilterButton,
   onChange,

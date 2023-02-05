@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 
-
 const useVisibility = (initial = false) => {
   const [visibility, setVisibility] = useState(initial);
   return {

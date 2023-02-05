@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { DEFAULT_PAGE_SIZE } from "@/constants/config";
 
-
 export const getPagesCount = (count, pageSize) => {
   const reminder = count % pageSize;
   const divisionResult = count / pageSize;

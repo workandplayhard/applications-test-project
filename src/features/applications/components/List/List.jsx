@@ -19,8 +19,6 @@ const ApplicationsList = () => {
     categories: appliedFilters.map((filter) => filter.id),
   });
 
-  console.error(data, isFetched);
-
   return (
     <Grid container rowSpacing={3}>
       <Grid item container>

@@ -5,7 +5,6 @@ import { Button } from "@mui/material";
 import useVisibility from "@/hooks/useVisibility";
 import ApplicationsListFilterDialog from "./ListFilterDialog";
 
-
 export const FILTER_BUTTON_SX = {
   marginRight: (theme) => theme.spacing(-1.5),
   padding: (theme) => theme.spacing(0, 2),

@@ -4,7 +4,6 @@ import {
   getRowsDisplayedRange,
 } from "@/components/PaginationInfo/lib.js";
 
-
 const PaginationInfo = ({ page, count }) => {
   const { from, to } = getRowsDisplayedRange({ page, count });
   return (
