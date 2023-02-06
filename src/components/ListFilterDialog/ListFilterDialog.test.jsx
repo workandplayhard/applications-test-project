@@ -7,9 +7,11 @@ import ListFilterDialog from "./ListFilterDialog";
 const onClose = vi.fn();
 const onClear = vi.fn();
 const onApply = vi.fn();
+const mockAnchorEl = document.createElement("button");
 
 const ui = (
   <ListFilterDialog
+    anchorEl={mockAnchorEl}
     title='Filters title'
     open
     onApply={onApply}
@@ -58,14 +60,15 @@ describe("ListFilterDialog", () => {
   it("should handle Apply click without closing dialog", async () => {
     render(
       <ListFilterDialog
+        anchorEl={mockAnchorEl}
         closeOnApply={false}
-        title='filters title'
+        title='Filters title'
         open
         onApply={onApply}
         onClear={onClear}
         onClose={onClose}
       >
-        <div>dialog content</div>
+        <div>Dialog content</div>
       </ListFilterDialog>,
     );
     await userEvent.click(screen.getByText(/apply/i));
