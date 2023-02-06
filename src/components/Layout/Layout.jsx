@@ -31,7 +31,7 @@ function Layout({ children }) {
     <>
       <Header>
         <Box sx={HEADER_CONTAINER_STYLES_SX}>
-          <Typography sx={HEADER_TITLE_STYLES_SX} variant='h1'>
+          <Typography sx={HEADER_TITLE_STYLES_SX} variant="h1">
             Integrations
           </Typography>
           <Typography sx={HEADER_CONTENT_STYLES_SX}>
@@ -40,7 +40,7 @@ function Layout({ children }) {
           </Typography>
         </Box>
       </Header>
-      <Container component='main' maxWidth='lg' sx={CONTAINER_SX}>
+      <Container component="main" maxWidth="lg" sx={CONTAINER_SX}>
         {children}
       </Container>
     </>

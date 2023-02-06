@@ -8,23 +8,23 @@ function ListFilter({ ListFilterButton, onChange, value, placeholder = "Search" 
   };
   return (
     <Stack
-      data-testid='list-filter'
+      data-testid="list-filter"
       sx={{
         width: (theme) => ({ xs: "100%", sm: "100%", md: theme.spacing(47) }),
       }}
     >
       <TextField
-        id='apps-search'
+        id="apps-search"
         InputProps={{
           startAdornment: (
-            <InputAdornment position='start'>
+            <InputAdornment position="start">
               <SearchIcon />
             </InputAdornment>
           ),
-          endAdornment: <InputAdornment component={ListFilterButton} position='end' />,
+          endAdornment: <InputAdornment component={ListFilterButton} position="end" />,
         }}
         placeholder={placeholder}
-        size='small'
+        size="small"
         sx={{
           backgroundColor: "rgb(255,255,255)",
         }}

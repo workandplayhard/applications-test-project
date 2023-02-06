@@ -28,7 +28,7 @@ function ListFilterButton() {
         ref={ref}
         endIcon={visibility ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         sx={FILTER_BUTTON_SX}
-        variant='text'
+        variant="text"
         onClick={toggle}
       >
         Filter

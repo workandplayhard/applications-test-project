@@ -38,17 +38,17 @@ function ListFilterDialog({
     <ThemeProvider theme={theme}>
       {open && (
         <ClickAwayListener onClickAway={onClose}>
-          <Popper anchorEl={anchorEl} open={open} placement='bottom-end' transition>
+          <Popper anchorEl={anchorEl} open={open} placement="bottom-end" transition>
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={240}>
-                <Paper data-testid='list-filter-dialog'>
+                <Paper data-testid="list-filter-dialog">
                   <DialogTitle>
-                    <Typography component='span' variant='h6'>
+                    <Typography component="span" variant="h6">
                       Filters
                     </Typography>
                     <IconButton
-                      data-testid='btn-close'
-                      title='Close'
+                      data-testid="btn-close"
+                      title="Close"
                       disableFocusRipple
                       disableRipple
                       onClick={onClose}
@@ -57,11 +57,11 @@ function ListFilterDialog({
                     </IconButton>
                   </DialogTitle>
                   <DialogContent>
-                    <Stack direction='row' justifyContent='space-between'>
-                      <Typography component='div' data-testid='filters-name'>
+                    <Stack direction="row" justifyContent="space-between">
+                      <Typography component="div" data-testid="filters-name">
                         {title}
                       </Typography>
-                      <Button size='small' variant='text' onClick={onClear}>
+                      <Button size="small" variant="text" onClick={onClear}>
                         Clear
                       </Button>
                     </Stack>
@@ -69,7 +69,7 @@ function ListFilterDialog({
                   </DialogContent>
                   <DialogActions>
                     <Button onClick={onClear}>Clear all</Button>
-                    <Button size='large' variant='contained' onClick={handleApplyClick}>
+                    <Button size="large" variant="contained" onClick={handleApplyClick}>
                       Apply
                     </Button>
                   </DialogActions>

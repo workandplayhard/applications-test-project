@@ -30,7 +30,7 @@ function ApplicationsListItem({ application }) {
   return (
     <>
       <Card
-        data-testid='application-card'
+        data-testid="application-card"
         elevation={1}
         sx={{
           display: "flex",
@@ -42,22 +42,22 @@ function ApplicationsListItem({ application }) {
       >
         <CardHeader
           avatar={
-            <Avatar data-testid='app-icon' src={application.icon}>
+            <Avatar data-testid="app-icon" src={application.icon}>
               {application.title.charAt(0)}
             </Avatar>
           }
-          data-testid='app-header'
+          data-testid="app-header"
           subheader={application.categories.join(", ")}
           title={application.title}
         />
         <CardContent sx={{ display: "flex", flexGrow: 1, padding: "8px 16px" }}>
-          <Typography data-testid='app-description'>{application.description}</Typography>
+          <Typography data-testid="app-description">{application.description}</Typography>
         </CardContent>
         <CardActions sx={{ padding: "8px" }}>
           <Button
-            data-testid='btn-notify-me'
+            data-testid="btn-notify-me"
             endIcon={<KeyboardArrowRightIcon />}
-            size='small'
+            size="small"
             sx={{ fontSize: "16px" }}
             onClick={show}
           >

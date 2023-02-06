@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, vi } from "vitest";
+import { afterEach, describe, it, vi } from "vitest";
 
 import ListFilterDialog from "./ListFilterDialog";
 
@@ -12,7 +12,7 @@ const mockAnchorEl = document.createElement("button");
 const ui = (
   <ListFilterDialog
     anchorEl={mockAnchorEl}
-    title='Filters title'
+    title="Filters title"
     open
     onApply={onApply}
     onClear={onClear}
@@ -62,7 +62,7 @@ describe("ListFilterDialog", () => {
       <ListFilterDialog
         anchorEl={mockAnchorEl}
         closeOnApply={false}
-        title='Filters title'
+        title="Filters title"
         open
         onApply={onApply}
         onClear={onClear}

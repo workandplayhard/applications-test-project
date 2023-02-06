@@ -1,6 +1,7 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import { describe, it } from "vitest";
 
 import AllProviders from "@/providers/AllProviders";
 
@@ -16,21 +17,21 @@ describe("ApplicationsList", () => {
   afterEach(() => {
     cleanup();
   });
-  test("should render correctly", async () => {
+  it("should render correctly", async () => {
     render(ui);
     expect(screen.queryAllByTestId("application-card").length).toBe(10);
     expect(screen.getByTestId("pagination-info")).toBeInTheDocument();
     expect(screen.getByTestId("list-filter")).toBeInTheDocument();
-    expect(within(screen.getByTestId("list-filter")).getByText("Filters")).toBeInTheDocument();
+    expect(within(screen.getByTestId("list-filter")).getByText("Filter")).toBeInTheDocument();
     expect(screen.getByTestId("applied-filters")).toBeInTheDocument();
     expect(screen.getByTestId("list-pagination")).toBeInTheDocument();
   });
-  test("should handle Filters change", async () => {
+  it("should handle Filters change", async () => {
     render(ui);
 
     expect(screen.queryAllByTestId("application-card").length).toBe(10);
 
-    await userEvent.click(within(screen.getByTestId("list-filter")).getByText("Filters"));
+    await userEvent.click(within(screen.getByTestId("list-filter")).getByText("Filter"));
     await userEvent.click(within(screen.getByTestId("list-filter-dialog")).getByText("Accounting"));
     await userEvent.click(
       within(screen.getByTestId("list-filter-dialog")).getByText("Bookkeeping"),
@@ -51,7 +52,7 @@ describe("ApplicationsList", () => {
       expect(header).not.toHaveTextContent(/Bookkeeping/);
     });
   });
-  test("should handle page change", async () => {
+  it("should handle page change", async () => {
     render(ui);
 
     expect(
@@ -72,7 +73,7 @@ describe("ApplicationsList", () => {
       "true",
     );
   });
-  test("should handle page change with select box", async () => {
+  it("should handle page change with select box", async () => {
     render(ui);
     expect(
       within(screen.getByTestId("list-pagination")).getByLabelText("page 1"),
@@ -91,7 +92,7 @@ describe("ApplicationsList", () => {
       "true",
     );
   });
-  test("should handle search", async () => {
+  it("should handle search", async () => {
     render(ui);
     await userEvent.type(screen.getByPlaceholderText("Search apps"), "___NonExistingText___");
     expect(screen.queryAllByTestId("application-card").length).toBe(0);

@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, vi } from "vitest";
+import { afterEach, describe, it, vi } from "vitest";
 
 import AppStateProvider from "@/providers/AppStateProvider";
 

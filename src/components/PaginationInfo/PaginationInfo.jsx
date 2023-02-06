@@ -7,10 +7,10 @@ function PaginationInfo({ page, count }) {
   const { from, to } = getRowsDisplayedRange({ page, count });
   return (
     <Typography
-      component='div'
-      data-testid='pagination-info'
+      component="div"
+      data-testid="pagination-info"
       sx={{ fontWeight: 600 }}
-      variant='title'
+      variant="title"
     >
       {formatRange({ from, to, count })}
     </Typography>

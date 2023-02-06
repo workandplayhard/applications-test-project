@@ -34,7 +34,7 @@ function ApplicationsListFilterDialog({ anchorEl, open, hide }) {
     <FilterDialog
       anchorEl={anchorEl}
       open={open}
-      title='Categories'
+      title="Categories"
       onApply={handleApplyClick}
       onClear={handleClear}
       onClose={hide}
@@ -46,7 +46,7 @@ function ApplicationsListFilterDialog({ anchorEl, open, hide }) {
             control={
               <Checkbox
                 checked={Boolean(selectedCategories.find((el) => el.id === category))}
-                data-testid='category-checkbox'
+                data-testid="category-checkbox"
                 name={category}
                 onClick={handleCheckBoxClick}
               />
