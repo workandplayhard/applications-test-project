@@ -13,22 +13,17 @@ const filterByCategories = (data, categories) =>
 
 const filterBySearch = (data = [], search = "") => {
   const re = new RegExp(`${search}`, "gim");
-  return data.filter(
-    (category) => category.title.match(re) || category.description.match(re)
-  );
+  return data.filter((category) => category.title.match(re) || category.description.match(re));
 };
 
 const getDataPage = (data, page) => {
   const nextData = [...data];
   const start = (page - 1) * DEFAULT_PAGE_SIZE;
-  const end =
-    start + DEFAULT_PAGE_SIZE > data.length
-      ? data.length
-      : start + DEFAULT_PAGE_SIZE;
+  const end = start + DEFAULT_PAGE_SIZE > data.length ? data.length : start + DEFAULT_PAGE_SIZE;
   return nextData.slice((page - 1) * DEFAULT_PAGE_SIZE, end);
 };
 
-const getData = (data = [], filters) => {
+const getData = (data = [], filters = {}) => {
   const { search, page, categories } = filters;
   let nextData = data;
   let count = data.length;
@@ -46,14 +41,12 @@ const getData = (data = [], filters) => {
   return { data: nextData, count };
 };
 
-const useApplicationsList = (filters = {}) => {
-  return {
-    data: getData(
-      APPLICATIONS_LIST.sort(() => 0.5 - Math.random()),
-      filters
-    ),
-    isFetched: true,
-  };
-};
+const useApplicationsList = (filters = {}) => ({
+  data: getData(
+    APPLICATIONS_LIST.sort(() => 0.5 - Math.random()),
+    filters,
+  ),
+  isFetched: true,
+});
 
 export default useApplicationsList;

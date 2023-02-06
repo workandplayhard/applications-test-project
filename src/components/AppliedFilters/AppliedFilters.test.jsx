@@ -1,6 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
+
 import AppliedFilters from "./AppliedFilters";
 
 const onRemove = vi.fn();
@@ -10,12 +11,7 @@ const TEST_FILTERS = [
   { id: 2, label: "HIRS" },
 ];
 
-const ui = (
-  <AppliedFilters
-    appliedFilters={TEST_FILTERS}
-    removeAppliedFilter={onRemove}
-  />
-);
+const ui = <AppliedFilters appliedFilters={TEST_FILTERS} removeAppliedFilter={onRemove} />;
 
 describe("AppliedFilters", () => {
   it("should render correctly", () => {
@@ -27,9 +23,7 @@ describe("AppliedFilters", () => {
   it("should handle onDelete click", async () => {
     render(ui);
     await userEvent.click(
-      within(screen.queryAllByTestId("applied-filter")[0]).getByTestId(
-        "CancelIcon"
-      )
+      within(screen.queryAllByTestId("applied-filter")[0]).getByTestId("CancelIcon"),
     );
     expect(onRemove).toHaveBeenCalledTimes(1);
     expect(onRemove).toHaveBeenCalledWith(TEST_FILTERS[0].id);

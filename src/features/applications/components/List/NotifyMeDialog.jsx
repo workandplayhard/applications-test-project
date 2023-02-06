@@ -1,7 +1,5 @@
-import { useCallback, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
@@ -12,16 +10,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import validateEmail from "@/lib/validateEmail.js";
+import { useCallback, useState } from "react";
 
 import NotifyIcon from "@/assets/icon-notify.svg";
+import validateEmail from "@/lib/validateEmail.js";
 
 /**
  * NotifyMeDialog component
  * @param {bool} open - is dialog open
  * @param {func} hide - close dialog callback
  */
-const NotifyMeDialog = ({ open, hide }) => {
+function NotifyMeDialog({ open, hide }) {
   const [email, setEmail] = useState({ email: "", isError: false });
 
   const handleInputChange = useCallback((e) => {
@@ -38,63 +37,47 @@ const NotifyMeDialog = ({ open, hide }) => {
   };
 
   return (
-    <Dialog open={open} maxWidth="sm">
-      <DialogTitle
-        align="right"
-        sx={{ marginRight: (theme) => theme.spacing(-1) }}
-      >
-        <IconButton
-          data-testid="btn-close"
-          onClick={hide}
-          disableRipple
-          disableFocusRipple
-        >
+    <Dialog maxWidth='sm' open={open}>
+      <DialogTitle align='right' sx={{ marginRight: (theme) => theme.spacing(-1) }}>
+        <IconButton data-testid='btn-close' disableFocusRipple disableRipple onClick={hide}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <DialogContentText
-          component="div"
-          sx={{ marginBottom: (theme) => theme.spacing(2) }}
-        >
-          <Typography data-testid="dialog-title" component="div" variant="h6">
+        <DialogContentText component='div' sx={{ marginBottom: (theme) => theme.spacing(2) }}>
+          <Typography component='div' data-testid='dialog-title' variant='h6'>
             Thank you for your interest
           </Typography>
-          <Typography data-testid="dialog-message">
-            We still working on integrating this app it's not yet ready for now.
-            But you can send us your email so we can let you know when it's
-            ready
+          <Typography data-testid='dialog-message'>
+            {`We still working on integrating this app it's not yet ready for now. But you can send us
+            your email so we can let you know when it's ready`}
           </Typography>
         </DialogContentText>
         <TextField
-          id="email-input"
-          type="email"
-          onChange={handleInputChange}
-          autoFocus
-          placeholder="email@email.com"
-          label="Email"
-          fullWidth
           error={email.isError}
           helperText={email.isError ? "Invalid email address" : undefined}
+          id='email-input'
+          label='Email'
+          placeholder='email@email.com'
+          type='email'
+          autoFocus
+          fullWidth
+          onChange={handleInputChange}
         />
       </DialogContent>
       <DialogActions sx={{ padding: (theme) => theme.spacing(2, 3, 3, 3) }}>
-        <Button onClick={hide} variant="outlined">
+        <Button variant='outlined' onClick={hide}>
           Never mind
         </Button>
-        <Button
-          variant="contained"
-          onClick={handleSubmitClick}
-          disabled={email.isError}
-        >
+        <Button disabled={email.isError} variant='contained' onClick={handleSubmitClick}>
           <Typography sx={{ paddingRight: "4px" }}>
-            <img src={NotifyIcon} alt="Notify Icon" />
+            <img alt='Notify Icon' src={NotifyIcon} />
           </Typography>
           Notify me
         </Button>
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 export default NotifyMeDialog;

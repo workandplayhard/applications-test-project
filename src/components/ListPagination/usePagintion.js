@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from "react";
+
 import { DEFAULT_PAGE_SIZE } from "@/constants/config";
 
 export const getPagesCount = (count, pageSize) => {
@@ -7,32 +8,26 @@ export const getPagesCount = (count, pageSize) => {
   return reminder === 0 ? divisionResult : parseInt(divisionResult, 10) + 1;
 };
 
-const usePagination = ({
-  count,
-  onPageChange,
-  pageSize = DEFAULT_PAGE_SIZE,
-}) => {
-  const pagesCount = useMemo(
-    () => (count ? getPagesCount(count, pageSize) : 1),
-    [count, pageSize]
-  );
+const usePagination = ({ count, onPageChange, pageSize = DEFAULT_PAGE_SIZE }) => {
+  const pagesCount = useMemo(() => (count ? getPagesCount(count, pageSize) : 1), [count, pageSize]);
   return {
     handleSelectPageChanged: useCallback(
       (e) => {
         onPageChange(e.target.value);
       },
-      [onPageChange]
+      [onPageChange],
     ),
     handlePageChange: useCallback(
       (_, page) => {
         onPageChange(page);
       },
-      [onPageChange]
+      [onPageChange],
     ),
     pagesCount,
-    pageNumbers: useMemo(() => {
-      return Array.from(Array(pagesCount || 1).keys(), (item) => item + 1);
-    }, [pagesCount]),
+    pageNumbers: useMemo(
+      () => Array.from(Array(pagesCount || 1).keys(), (item) => item + 1),
+      [pagesCount],
+    ),
   };
 };
 

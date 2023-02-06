@@ -1,14 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
+
 import AllProviders from "@/providers/AllProviders";
+
 import NotifyMeDialog from "./NotifyMeDialog";
 
 const onClose = vi.fn();
 
 const ui = (
   <AllProviders>
-    <NotifyMeDialog open hide={onClose} appId={1} />
+    <NotifyMeDialog appId={1} hide={onClose} open />
   </AllProviders>
 );
 
@@ -18,11 +20,9 @@ describe("NotifyMeDialog", () => {
   });
   it("should render correctly", () => {
     render(ui);
-    expect(screen.getByTestId("dialog-title")).toHaveTextContent(
-      "Thank you for your interest"
-    );
+    expect(screen.getByTestId("dialog-title")).toHaveTextContent("Thank you for your interest");
     expect(screen.getByTestId("dialog-message")).toHaveTextContent(
-      "We still working on integrating this app it's not yet ready for now. But you can send us your email so we can let you know when it's ready"
+      "We still working on integrating this app it's not yet ready for now. But you can send us your email so we can let you know when it's ready",
     );
     expect(screen.getByTestId("btn-close")).toBeInTheDocument();
     expect(screen.getByText(/never mind/i)).toBeInTheDocument();

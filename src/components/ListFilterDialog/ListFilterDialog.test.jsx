@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
+
 import ListFilterDialog from "./ListFilterDialog";
 
 const onClose = vi.fn();
@@ -9,11 +10,11 @@ const onApply = vi.fn();
 
 const ui = (
   <ListFilterDialog
+    title='Filters title'
     open
-    onClose={onClose}
     onApply={onApply}
     onClear={onClear}
-    title={"Filters title"}
+    onClose={onClose}
   >
     <div>Dialog content</div>
   </ListFilterDialog>
@@ -57,15 +58,15 @@ describe("ListFilterDialog", () => {
   it("should handle Apply click without closing dialog", async () => {
     render(
       <ListFilterDialog
+        closeOnApply={false}
+        title='filters title'
         open
-        onClose={onClose}
         onApply={onApply}
         onClear={onClear}
-        title={"filters title"}
-        closeOnApply={false}
+        onClose={onClose}
       >
         <div>dialog content</div>
-      </ListFilterDialog>
+      </ListFilterDialog>,
     );
     await userEvent.click(screen.getByText(/apply/i));
     expect(onApply).toHaveBeenCalledTimes(1);

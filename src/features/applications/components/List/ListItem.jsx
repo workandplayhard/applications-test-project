@@ -8,7 +8,9 @@ import {
   CardHeader,
   Typography,
 } from "@mui/material";
+
 import useVisibility from "@/hooks/useVisibility";
+
 import NotifyMeDialog from "./NotifyMeDialog";
 
 /**
@@ -21,13 +23,13 @@ import NotifyMeDialog from "./NotifyMeDialog";
  * description: string
  * }} application - application object.
  */
-const ApplicationsListItem = ({ application }) => {
+function ApplicationsListItem({ application }) {
   const { visibility, show, hide } = useVisibility();
 
   return (
     <>
       <Card
-        data-testid="application-card"
+        data-testid='application-card'
         elevation={1}
         sx={{
           display: "flex",
@@ -37,34 +39,32 @@ const ApplicationsListItem = ({ application }) => {
         }}
       >
         <CardHeader
-          data-testid="app-header"
           avatar={
-            <Avatar data-testid="app-icon" src={application.icon}>
+            <Avatar data-testid='app-icon' src={application.icon}>
               {application.title.charAt(0)}
             </Avatar>
           }
-          title={application.title}
+          data-testid='app-header'
           subheader={application.categories.join(", ")}
+          title={application.title}
         />
         <CardContent sx={{ display: "flex", flexGrow: 1 }}>
-          <Typography data-testid="app-description">
-            {application.description}
-          </Typography>
+          <Typography data-testid='app-description'>{application.description}</Typography>
         </CardContent>
         <CardActions>
           <Button
-            data-testid="btn-notify-me"
-            onClick={show}
-            size="small"
+            data-testid='btn-notify-me'
             endIcon={<KeyboardArrowRightIcon />}
+            size='small'
+            onClick={show}
           >
             Notify me when it's ready
           </Button>
         </CardActions>
       </Card>
-      <NotifyMeDialog open={visibility} hide={hide} />
+      <NotifyMeDialog hide={hide} open={visibility} />
     </>
   );
-};
+}
 
 export default ApplicationsListItem;

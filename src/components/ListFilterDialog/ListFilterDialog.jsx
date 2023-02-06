@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import {
   Button,
@@ -14,9 +13,11 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
+import { useCallback } from "react";
+
 import theme from "./theme";
 
-const ListFilterDialog = ({
+function ListFilterDialog({
   anchorEl,
   title,
   open,
@@ -24,9 +25,8 @@ const ListFilterDialog = ({
   onClose,
   onClear,
   onApply,
-
   children,
-}) => {
+}) {
   const handleApplyClick = useCallback(() => {
     onApply();
     if (closeOnApply) {
@@ -38,35 +38,30 @@ const ListFilterDialog = ({
     <ThemeProvider theme={theme}>
       {open && (
         <ClickAwayListener onClickAway={onClose}>
-          <Popper
-            open={open}
-            anchorEl={anchorEl}
-            transition
-            placement={"bottom-end"}
-          >
+          <Popper anchorEl={anchorEl} open={open} placement='bottom-end' transition>
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={240}>
-                <Paper data-testid="list-filter-dialog">
+                <Paper data-testid='list-filter-dialog'>
                   <DialogTitle>
-                    <Typography component="span" variant="h6">
+                    <Typography component='span' variant='h6'>
                       Filters
                     </Typography>
                     <IconButton
-                      data-testid="btn-close"
-                      title="Close"
-                      onClick={onClose}
-                      disableRipple
+                      data-testid='btn-close'
+                      title='Close'
                       disableFocusRipple
+                      disableRipple
+                      onClick={onClose}
                     >
                       <CloseIcon />
                     </IconButton>
                   </DialogTitle>
                   <DialogContent>
-                    <Stack direction="row" justifyContent="space-between">
-                      <Typography data-testid="filters-name" component="div">
+                    <Stack direction='row' justifyContent='space-between'>
+                      <Typography component='div' data-testid='filters-name'>
                         {title}
                       </Typography>
-                      <Button onClick={onClear} size="small" variant="text">
+                      <Button size='small' variant='text' onClick={onClear}>
                         Clear
                       </Button>
                     </Stack>
@@ -74,11 +69,7 @@ const ListFilterDialog = ({
                   </DialogContent>
                   <DialogActions>
                     <Button onClick={onClear}>Clear all</Button>
-                    <Button
-                      size="large"
-                      onClick={handleApplyClick}
-                      variant="contained"
-                    >
+                    <Button size='large' variant='contained' onClick={handleApplyClick}>
                       Apply
                     </Button>
                   </DialogActions>
@@ -90,6 +81,6 @@ const ListFilterDialog = ({
       )}
     </ThemeProvider>
   );
-};
+}
 
 export default ListFilterDialog;
