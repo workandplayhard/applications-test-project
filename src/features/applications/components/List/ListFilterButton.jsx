@@ -1,8 +1,10 @@
-import { useRef } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { Button } from "@mui/material";
+import { useRef } from "react";
+
 import useVisibility from "@/hooks/useVisibility";
+
 import ApplicationsListFilterDialog from "./ListFilterDialog";
 
 export const FILTER_BUTTON_SX = {
@@ -17,27 +19,23 @@ export const FILTER_BUTTON_SX = {
   borderLeftColor: (theme) => theme.palette.text.disabled,
   outline: "none !important",
 };
-const ListFilterButton = () => {
+function ListFilterButton() {
   const { visibility, hide, toggle } = useVisibility();
   const ref = useRef(null);
   return (
     <>
       <Button
         ref={ref}
-        onClick={toggle}
-        variant="text"
         endIcon={visibility ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         sx={FILTER_BUTTON_SX}
+        variant='text'
+        onClick={toggle}
       >
         Filters
       </Button>
-      <ApplicationsListFilterDialog
-        anchorEl={ref.current}
-        open={visibility}
-        hide={hide}
-      />
+      <ApplicationsListFilterDialog anchorEl={ref.current} hide={hide} open={visibility} />
     </>
   );
-};
+}
 
 export default ListFilterButton;

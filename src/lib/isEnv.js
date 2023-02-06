@@ -1,11 +1,5 @@
-export const isProdEnv = () => {
-  return process.env.NODE_ENV === "production";
-};
+export const isProdEnv = () => process.env.NODE_ENV === "production";
 
-export const isDevEnv = () => {
-  return process.env.NODE_ENV === "development";
-};
+export const isDevEnv = () => process.env.NODE_ENV === "development";
 
-export const isTestEnv = () => {
-  return process.env.NODE_ENV === "test";
-};
+export const isTestEnv = () => process.env.NODE_ENV === "test";

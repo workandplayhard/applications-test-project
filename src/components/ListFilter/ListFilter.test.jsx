@@ -1,16 +1,17 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
+
 import ListFilter from "./ListFilter";
 
 const onChange = vi.fn();
 
 const ui = (
   <ListFilter
-    ListFilterButton={() => <button>fake button</button>}
+    ListFilterButton={() => <button type='button'>fake button</button>}
+    placeholder='Search apps'
+    value=''
     onChange={onChange}
-    value={""}
-    placeholder="Search apps"
   />
 );
 

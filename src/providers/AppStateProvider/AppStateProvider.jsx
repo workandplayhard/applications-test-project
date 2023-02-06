@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
+
 import { AppsStateContextProvider } from "@/context/appContext";
 
-const AppStateProvider = ({ children }) => {
+function AppStateProvider({ children }) {
   const [{ search, appliedFilters, page }, setState] = useState({
     search: "",
     appliedFilters: [],
@@ -46,6 +47,6 @@ const AppStateProvider = ({ children }) => {
       {children}
     </AppsStateContextProvider>
   );
-};
+}
 
 export default AppStateProvider;

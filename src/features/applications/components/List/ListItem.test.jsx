@@ -1,6 +1,8 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
 import AllProviders from "@/providers/AllProviders/index";
+
 import ApplicationsListItem from "./ListItem";
 
 const testApplication = {
@@ -21,22 +23,16 @@ const ui = (
 describe("ApplicationsListItem", () => {
   it("should render correctly", () => {
     render(ui);
-    expect(
-      within(screen.getByTestId("app-header")).getByText("Darwinbox")
-    ).toBeInTheDocument();
-    expect(
-      within(screen.getByTestId("app-header")).getByText("HIRS, Payroll")
-    ).toBeInTheDocument();
+    expect(within(screen.getByTestId("app-header")).getByText("Darwinbox")).toBeInTheDocument();
+    expect(within(screen.getByTestId("app-header")).getByText("HIRS, Payroll")).toBeInTheDocument();
     expect(screen.getByTestId("app-description")).toHaveTextContent(
-      "Darwinbox provides end-to-end agile HRMS suite to deliver countless results within one platform for your employees"
+      "Darwinbox provides end-to-end agile HRMS suite to deliver countless results within one platform for your employees",
     );
     expect(screen.getByText(/notify me when it's ready/i)).toBeInTheDocument();
   });
   it("should popup notify dialog", async () => {
     render(ui);
     await userEvent.click(screen.getByText(/notify me when it's ready/i));
-    expect(
-      screen.getByText(/Thank you for your interest/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Thank you for your interest/i)).toBeInTheDocument();
   });
 });

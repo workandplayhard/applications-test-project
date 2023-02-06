@@ -1,13 +1,14 @@
-import React from "react";
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
-import DEFAULT_THEME from "@/constants/defaultTheme.js";
+import React from "react";
 
-const ThemeProvider = ({ children }) => {
+import DEFAULT_THEME from "@/constants/defaultTheme";
+
+function ThemeProvider({ children }) {
   return (
     <MuiThemeProvider theme={DEFAULT_THEME}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>
   );
-};
+}
 export default ThemeProvider;

@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+
 import icon from "@/assets/empty-list.png";
 
 const IMAGE_BOX_SX = {
@@ -9,18 +10,14 @@ const IMAGE_BOX_SX = {
   backgroundSize: "contain",
 };
 
-const ListEmptyWarning = () => {
+function ListEmptyWarning() {
   return (
-    <Stack justifyContent="center" alignItems="center" flex={1}>
-      <Box sx={IMAGE_BOX_SX}></Box>
-      <Typography variant="h6">
-        We can't seem to find what you're looking for.
-      </Typography>
-      <Typography variant="caption">
-        Try changing the filters or search terms.
-      </Typography>
+    <Stack alignItems='center' flex={1} justifyContent='center'>
+      <Box sx={IMAGE_BOX_SX} />
+      <Typography variant='h6'>We can't seem to find what you're looking for.</Typography>
+      <Typography variant='caption'>Try changing the filters or search terms.</Typography>
     </Stack>
   );
-};
+}
 
 export default ListEmptyWarning;

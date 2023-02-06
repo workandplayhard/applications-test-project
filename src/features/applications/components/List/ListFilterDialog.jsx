@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { useCallback, useState } from "react";
+
 import FilterDialog from "@/components/ListFilterDialog";
 import {
   APPLICATIONS_CATEGORIES,
@@ -7,16 +8,13 @@ import {
 } from "@/features/applications/constants/filterCategories";
 import { useFilter } from "@/hooks";
 
-const ApplicationsListFilterDialog = ({ anchorEl, open, hide }) => {
+function ApplicationsListFilterDialog({ anchorEl, open, hide }) {
   const { applyFilters } = useFilter();
-  const [selectedCategories, setSelectedCategories] =
-    useState(INITIAL_FILTER_STATE);
+  const [selectedCategories, setSelectedCategories] = useState(INITIAL_FILTER_STATE);
 
   const handleCheckBoxClick = useCallback((e) => {
     setSelectedCategories((curr) => {
-      const existing = curr.find((category) => {
-        return category.id === e.target.name;
-      });
+      const existing = curr.find((category) => category.id === e.target.name);
       if (existing) {
         return curr.filter((category) => category.id !== existing.id);
       }
@@ -34,9 +32,9 @@ const ApplicationsListFilterDialog = ({ anchorEl, open, hide }) => {
 
   return (
     <FilterDialog
-      open={open}
       anchorEl={anchorEl}
-      title="Categories"
+      open={open}
+      title='Categories'
       onApply={handleApplyClick}
       onClear={handleClear}
       onClose={hide}
@@ -47,12 +45,10 @@ const ApplicationsListFilterDialog = ({ anchorEl, open, hide }) => {
             key={category}
             control={
               <Checkbox
-                data-testid="category-checkbox"
-                onClick={handleCheckBoxClick}
+                checked={Boolean(selectedCategories.find((el) => el.id === category))}
+                data-testid='category-checkbox'
                 name={category}
-                checked={Boolean(
-                  selectedCategories.find((el) => el.id === category)
-                )}
+                onClick={handleCheckBoxClick}
               />
             }
             label={category}
@@ -61,6 +57,6 @@ const ApplicationsListFilterDialog = ({ anchorEl, open, hide }) => {
       </FormGroup>
     </FilterDialog>
   );
-};
+}
 
 export default ApplicationsListFilterDialog;

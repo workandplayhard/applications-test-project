@@ -1,10 +1,11 @@
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, vi } from "vitest";
+
 import ListPagination from "./ListPagination";
 
 const onPageChange = vi.fn();
-const ui = <ListPagination page={1} count={15} onPageChange={onPageChange} />;
+const ui = <ListPagination count={15} page={1} onPageChange={onPageChange} />;
 
 describe("ListPagination", () => {
   afterEach(() => {
@@ -25,12 +26,9 @@ describe("ListPagination", () => {
   });
   it("should change with page selector", async () => {
     render(ui);
-    // eslint-disable-next-line testing-library/no-node-access
     const select = document.getElementById("mui-component-select-page-select");
     await userEvent.click(select);
-    await userEvent.click(
-      within(screen.getByRole("presentation")).getByText("2")
-    );
+    await userEvent.click(within(screen.getByRole("presentation")).getByText("2"));
     expect(onPageChange).toHaveBeenCalledTimes(1);
     expect(onPageChange).toHaveBeenCalledWith(2);
   });
