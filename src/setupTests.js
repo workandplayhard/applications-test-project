@@ -1,5 +1,4 @@
-import { configure } from "@testing-library/react";
+import matchers from "@testing-library/jest-dom/matchers";
+import { expect } from "vitest";
 
-import "@testing-library/jest-dom";
-
-configure({ testIdAttribute: "data-testid" });
+expect.extend(matchers);

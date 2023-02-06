@@ -26,10 +26,10 @@ function ApplicationsList() {
       <Grid container item>
         <PaginationInfo count={data?.count || 0} page={page} />
       </Grid>
-      <Grid direction='column' container item>
+      <Grid direction="column" container item>
         <ListFilter
           ListFilterButton={ListFilterButton}
-          placeholder='Search apps'
+          placeholder="Search apps"
           value={search}
           onChange={setSearch}
         />
@@ -39,7 +39,7 @@ function ApplicationsList() {
         <ListEmptyWarning />
       ) : (
         <>
-          <Grid alignItems='stretch' columnSpacing={2.5} rowSpacing={5} container item>
+          <Grid alignItems="stretch" columnSpacing={2.5} rowSpacing={5} container item>
             {data?.data.map((application) => (
               <Grid key={application.id} md={4} sm={6} container item>
                 <ApplicationsListItem application={application} />

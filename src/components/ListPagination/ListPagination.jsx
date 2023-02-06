@@ -21,21 +21,21 @@ function ListPagination({ page, count, onPageChange, pageSize }) {
   return (
     <ThemeProvider theme={PAGINATION_THEME}>
       <Stack
-        alignItems='center'
-        data-testid='list-pagination'
-        direction='row'
+        alignItems="center"
+        data-testid="list-pagination"
+        direction="row"
         flex={1}
-        justifyContent='space-between'
+        justifyContent="space-between"
       >
-        <MuiPagination color='primary' count={pagesCount} page={page} onChange={handlePageChange} />
-        <Stack alignItems='center' direction='row'>
-          <Typography component='div'>Go to page</Typography>
+        <MuiPagination color="primary" count={pagesCount} page={page} onChange={handlePageChange} />
+        <Stack alignItems="center" direction="row">
+          <Typography component="div">Go to page</Typography>
           <Select
             key={page}
             defaultValue={page}
-            name='page-select'
-            size='small'
-            variant='outlined'
+            name="page-select"
+            size="small"
+            variant="outlined"
             onChange={handleSelectPageChanged}
           >
             {pageNumbers.map((number) => (

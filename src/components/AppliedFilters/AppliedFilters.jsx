@@ -10,13 +10,13 @@ function AppliedFilters({
 }) {
   return (
     <ThemeProvider theme={theme}>
-      <Stack data-testid='applied-filters' direction='row' flexWrap='wrap'>
+      <Stack data-testid="applied-filters" direction="row" flexWrap="wrap">
         {appliedFilters.map((filter) => (
           <Chip
             key={filter.id}
-            data-testid='applied-filter'
+            data-testid="applied-filter"
             label={filter.label}
-            size='small'
+            size="small"
             sx={{
               borderRadius: "4px",
             }}
