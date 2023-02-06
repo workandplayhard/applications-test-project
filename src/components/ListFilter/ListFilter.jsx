@@ -1,5 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { InputAdornment, Stack, TextField } from "@mui/material";
+import { memo } from "react";
 
 function ListFilter({ ListFilterButton, onChange, value, placeholder = "Search" }) {
   const handleSearchChange = (e) => {
@@ -34,4 +35,4 @@ function ListFilter({ ListFilterButton, onChange, value, placeholder = "Search" 
   );
 }
 
-export default ListFilter;
+export default memo(ListFilter);

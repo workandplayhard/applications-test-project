@@ -31,7 +31,7 @@ function ListFilterButton() {
         variant='text'
         onClick={toggle}
       >
-        Filters
+        Filter
       </Button>
       <ApplicationsListFilterDialog anchorEl={ref.current} hide={hide} open={visibility} />
     </>

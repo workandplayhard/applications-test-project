@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { memo } from "react";
 
 import { formatRange, getRowsDisplayedRange } from "@/components/PaginationInfo/lib.js";
 
@@ -16,4 +17,4 @@ function PaginationInfo({ page, count }) {
   );
 }
 
-export default PaginationInfo;
+export default memo(PaginationInfo);

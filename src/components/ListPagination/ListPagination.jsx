@@ -6,6 +6,7 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
+import { memo } from "react";
 
 import PAGINATION_THEME from "./theme";
 import usePagination from "./usePagintion";
@@ -49,4 +50,4 @@ function ListPagination({ page, count, onPageChange, pageSize }) {
   );
 }
 
-export default ListPagination;
+export default memo(ListPagination);

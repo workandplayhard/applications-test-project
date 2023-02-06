@@ -8,6 +8,7 @@ import {
   CardHeader,
   Typography,
 } from "@mui/material";
+import { memo } from "react";
 
 import useVisibility from "@/hooks/useVisibility";
 
@@ -36,6 +37,7 @@ function ApplicationsListItem({ application }) {
           flexDirection: "column",
           minHeight: "100%",
           flexGrow: 1,
+          padding: "8px",
         }}
       >
         <CardHeader
@@ -48,14 +50,15 @@ function ApplicationsListItem({ application }) {
           subheader={application.categories.join(", ")}
           title={application.title}
         />
-        <CardContent sx={{ display: "flex", flexGrow: 1 }}>
+        <CardContent sx={{ display: "flex", flexGrow: 1, padding: "8px 16px" }}>
           <Typography data-testid='app-description'>{application.description}</Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ padding: "8px" }}>
           <Button
             data-testid='btn-notify-me'
             endIcon={<KeyboardArrowRightIcon />}
             size='small'
+            sx={{ fontSize: "16px" }}
             onClick={show}
           >
             Notify me when it's ready
@@ -67,4 +70,4 @@ function ApplicationsListItem({ application }) {
   );
 }
 
-export default ApplicationsListItem;
+export default memo(ApplicationsListItem);

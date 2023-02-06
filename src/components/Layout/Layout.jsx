@@ -8,23 +8,22 @@ const CONTAINER_SX = {
 };
 
 const HEADER_CONTAINER_STYLES_SX = {
-  paddingTop: { md: "95px" },
-  paddingLeft: { md: "80px" },
+  padding: { md: "95px 80px", sm: "50px", xs: "20px" },
   color: "white",
+  textAlign: { md: "left", xs: "center" },
 };
 
 const HEADER_TITLE_STYLES_SX = {
-  fontSize: "48px",
-  paddingTop: "32px",
-  lineHeight: "28px",
+  fontSize: { md: "48px", xs: "32px" },
+  lineHeight: { md: "56px" },
   fontWeight: 700,
 };
 
 const HEADER_CONTENT_STYLES_SX = {
   maxWidth: { md: "635px" },
-  fontSize: "18px",
-  paddingTop: "32px",
-  lineHeight: "28px",
+  fontSize: { md: "18px", sm: "16px", xs: "14px" },
+  paddingTop: { md: "32px", sm: "24px", xs: "16px" },
+  lineHeight: { md: "28px", xs: "24px" },
 };
 
 function Layout({ children }) {
